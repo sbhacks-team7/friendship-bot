@@ -1,0 +1,23 @@
+{
+  "name": "friendship-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbhacks-team7/friendship-bot.git"
+  },
+  "author": "Bryan Xu, Sydney Lim, Alan Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbhacks-team7/friendship-bot/issues"
+  },
+  "homepage": "https://github.com/sbhacks-team7/friendship-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}

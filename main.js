@@ -52,6 +52,9 @@ client.on('message', message => {
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
     
+    } else if (command === 'mindread') {
+        client.commands.get('mindread').execute(message, args);
+    
     }else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');
     }

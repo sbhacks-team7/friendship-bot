@@ -1,12 +1,10 @@
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+require('dotenv').config();
 const {Client, MessageEmbed} = require('discord.js');
-
 const client = new Discord.Client();
-
 const fs = require('fs');
-
 client.commands = new Discord.Collection();
+const prefix = "$";
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -67,4 +65,4 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(process.env.CLIENT_TOKEN);

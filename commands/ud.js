@@ -9,8 +9,8 @@ const Discord = require('discord.js');
 
 module.exports= {
     name: 'urbandictionary',
-    description: "Description: Looks up a term on Urban Dictionary!",
-    usage: "Usage: $urbandictionary \n\n",
+    description: "Looks up a term on Urban Dictionary!",
+    usage: "$urbandictionary [wordOrPhraseToLookUp] \n\n",
     async execute(message, args){
 
         if(!args.length) {

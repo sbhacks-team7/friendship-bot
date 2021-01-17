@@ -45,27 +45,26 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'help'){
+    if(command === 'help' || command === ''){
         client.commands.get('help').execute(message, args);
     } else if (command === 'hug') {
         client.commands.get('hug').execute(message, args);
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
     } else if (command === 'mindread') {
-        client.commands.get('mindread').execute(message, args);
-    
+        client.commands.get('mindread').execute(message, args);    
     } else if (command === 'magic8ball') {
         client.commands.get('magic8ball').execute(message, args);
-    
-    } else if (command === 'coinflip') {
+    } else if (command === 'coinflip' || command === 'cf') {
         client.commands.get('coinflip').execute(message, args);
-    
     } else if (command === 'cat') {
         client.commands.get('cat').execute(message, args);
-
     } else if (command === 'ud' || command === 'urbandictionary') {
         client.commands.get('urbandictionary').execute(message, args);
-
+    } else if (command === 'play') {
+        client.commands.get('play').execute(message, args);
+    } else if (command === 'leave') {
+        client.commands.get('leave').execute(message, args);
     }else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');
     }

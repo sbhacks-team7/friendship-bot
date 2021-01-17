@@ -7,28 +7,138 @@ module.exports= {
     usage: "$mindread [@mention]\n\n",
     execute(message, args){
         if (!message.mentions.users.size) {
-            return message.reply('you need to tag a user in order to read their mind!');
+            return message.reply('You need to tag a user in order to read their mind!');
         }        
         const taggedUser = message.mentions.users.first();
-        if(taggedUser===null || taggedUser === undefined){
-            console.log("tagged user was null");
+        if(taggedUser.bot) {
+            return message.channel.send('Sorry, you can\'t play with bots!');
+        }
+
+        if(message.author == taggedUser){
+            return message.channel.send('You\'re already reading your own mind, silly!');
         }
 
         const challenge = new Discord.MessageEmbed().setDescription(`${message.author} has issued as mindreading challenge to <@` + `${taggedUser.id}` +">!");
         message.channel.send(challenge);
 
         const embed = new Discord.MessageEmbed()
-            .setDescription("Do you accept this gift? 😊");
+            .setDescription("Which emoji are you feeling?");
         
         var taggedAnswer;
         var userAnswer;
 
+        var emotes = [
+            '👍', 
+            '👎', 
+            '💤', 
+            '😍', 
+            '😣', 
+            '😤', 
+            '🤕', 
+            '😒', 
+            '🤓', 
+            '💝', 
+            '💥', 
+            '💜', 
+            '😫', 
+            '💩', 
+            '🤡', 
+            '👹', 
+            '🐔', 
+            '🦍', 
+            '🐼', 
+            '🐻', 
+            '🐖', 
+            '🐤', 
+            '🧠', 
+            '👅', 
+            '👀', 
+            '🤖', 
+            '😻', 
+            '🥚', 
+            '🌮', 
+            '🥕', 
+            '🌻', 
+            '🌸', 
+            '🍔', 
+            '🍋', 
+            '🍎', 
+            '🐞', 
+            '🏈', 
+            '⚽', 
+            '🏀', 
+            '🏸', 
+            '🚁', 
+            '✈', 
+            '🌑', 
+            '🔥', 
+            '⚡', 
+            '🌝', 
+            '🌙', 
+            '🌜', 
+            '🚦', 
+            '🚨', 
+            '🎠', 
+            '🌁', 
+            '🏰', 
+            '🗽', 
+            '🌏', 
+            '🗻', 
+            '🕹', 
+            '🔮', 
+            '🎃', 
+            '🔔', 
+            '💎', 
+            '📖', 
+            '✂', 
+            '🔫', 
+            '⚰', 
+            '🗿', 
+            '🚫', 
+            '🏁', 
+            '💸', 
+            '🧤', 
+            '👔', 
+            '👞', 
+            '⛑', 
+            '🎩', 
+            '👢', 
+            '👑', 
+            '🤠'];
+        var randOf = list => list[Math.floor(Math.random() * list.length)];
+        
+        var emote1 = randOf(emotes);
+        var emote2 = randOf(emotes);
+        var emote3 = randOf(emotes);
+        var emote4 = randOf(emotes);
+        var emote5 = randOf(emotes);
+
+        while(emote2==emote1){
+            emote2 = randOf(emotes);
+        }
+        
+        while(emote3==emote1 || emote3==emote2){
+            emote3 = randOf(emotes);
+        }
+        
+        while(emote4==emote1 || emote4==emote2 || emote4==emote3){
+            emote4 = randOf(emotes);
+        }
+        
+        while(emote5==emote1 || emote5==emote2 || emote3==emote5 || emote5==emote4){
+            emote5 = randOf(emotes);
+        }
+
         taggedUser.send(embed).then((question) => {
-            question.react('👍');
-            question.react('👎');
+            question.react(emote1);
+            question.react(emote2);
+            question.react(emote3);
+            question.react(emote4);
+            question.react(emote5);
+    
         
             const filter1 = (reaction, user) => {
-                return ['👍', '👎'].includes(reaction.emoji.name) && !user.bot && user.username==taggedUser.username;
+                return emotes.includes(reaction.emoji.name) && !user.bot && user.username==taggedUser.username;
             };
 
         
@@ -41,7 +151,6 @@ module.exports= {
                     message.reply('Too late! Ran out of time...');
                     taggedAnswer = undefined;
                 } else {
-                    console.log(reason);
                     taggedAnswer = collected.array()[0];
                     taggedAnswer = taggedAnswer._emoji.name;
                 }
@@ -50,11 +159,14 @@ module.exports= {
         
 
         message.author.send(embed).then((question) => {
-            question.react('👍');
-            question.react('👎');
+            question.react(emote1);
+            question.react(emote2);
+            question.react(emote3);
+            question.react(emote4);
+            question.react(emote5);
         
             const filter2 = (reaction, user) => {
-                return ['👍', '👎'].includes(reaction.emoji.name) && !user.bot && user.username==message.author.username;
+                return emotes.includes(reaction.emoji.name) && !user.bot && user.username==message.author.username;
             };
     
     
@@ -67,7 +179,6 @@ module.exports= {
                     message.reply('Too late! Ran out of time...');
                     userAnswer = undefined;
                 } else {
-                    console.log(reason);
                     userAnswer = collected.array()[0];
                     userAnswer = userAnswer._emoji.name;
                 }
@@ -87,8 +198,6 @@ module.exports= {
         }
 
         function cont() {
-            console.log("Tagged asnwer: " + taggedAnswer);
-            console.log("\nUser answer: " + userAnswer + "\n");
             if(taggedAnswer === undefined || userAnswer === undefined || taggedAnswer !== userAnswer) {
                 message.channel.send("Your mental connection is weak...");
             } else {

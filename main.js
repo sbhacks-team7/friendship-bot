@@ -21,7 +21,7 @@ for(const file of commandFiles){
 
 client.on('ready', () => {
     console.log('friendship-bot is online now!');
-    client.user.setUsername("friendship-bot");
+    client.user.setUsername("Dachi");
     client.user.setActivity("$help");
 });
 

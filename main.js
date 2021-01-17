@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const {Client, MessageEmbed} = require('discord.js');
+
+
 const client = new Discord.Client();
 //const TOKEN = process.env.TOKEN;
 
@@ -60,6 +63,9 @@ client.on('message', message => {
     
     } else if (command === 'coinflip') {
         client.commands.get('coinflip').execute(message, args);
+    
+    } else if (command === 'cat') {
+        client.commands.get('cat').execute(message, args);
     
     }else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');

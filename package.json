@@ -18,6 +18,8 @@
   "homepage": "https://github.com/sbhacks-team7/friendship-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.3",
+    "node-fetch": "^2.6.1"
   }
 }

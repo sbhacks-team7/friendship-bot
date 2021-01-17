@@ -10,12 +10,11 @@ const Discord = require('discord.js');
 module.exports= {
     name: 'urbandictionary',
     description: "Looks up a term on Urban Dictionary!",
-    usage: "$urbandictionary [wordOrPhraseToLookUp] \n\n",
+    usage: "$urbandictionary [wordOrPhraseToLookUp] \t||\t $ud [wordOrPhraseToLookUp]\n\n",
     async execute(message, args){
 
         if(!args.length) {
             return message.channel.send('Please enter a term to search!');
-
         }
         
         const query = querystring.stringify({term: args.join(' ')});

@@ -53,7 +53,7 @@ client.on('message', message => {
         client.commands.get('fight').execute(message, args);
     } else if (command === 'mindread') {
         client.commands.get('mindread').execute(message, args);    
-    } else if (command === 'magic8ball') {
+    } else if (command === 'magic8ball' || command === '8') {
         client.commands.get('magic8ball').execute(message, args);
     } else if (command === 'coinflip' || command === 'cf') {
         client.commands.get('coinflip').execute(message, args);

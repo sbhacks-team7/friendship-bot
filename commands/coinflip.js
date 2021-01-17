@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports= {
     name: 'coinflip',
     description: "Heads or tails?",
-    usage: "$coinflip \n\n",
+    usage: "$coinflip \t||\t $cf \n\n",
      execute(message, args){
         
 

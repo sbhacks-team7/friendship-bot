@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports= {
     name: 'magic8ball',
     description: "Ask the magic 8 ball!",
-    usage: "$magic8ball [question] \n\n",
+    usage: "$magic8ball [question] \t||\t $8 [question]\n\n",
      execute(message, args){
         
 

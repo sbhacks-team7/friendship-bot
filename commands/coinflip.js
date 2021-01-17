@@ -7,7 +7,7 @@ module.exports= {
      execute(message, args){
         
 
-        const answers = ["Heads.", "Tails.", "Oops, it rolled into a crack..."];
+        const answers = ["Heads.", "Heads.", "Heads.", "Heads.", "Heads.", "Heads.", "Tails.", "Tails.", "Tails.", "Tails.", "Tails.", "Tails.", "Oops, it rolled into a crack..."];
         
         
 

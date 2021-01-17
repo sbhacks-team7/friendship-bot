@@ -7,7 +7,7 @@ module.exports= {
         execute(message, args){
            if (!message.mentions.users.size) {
                return message.reply('you need to tag a user in order to hug them!');
-           }s
+           }
            const taggedUser = message.mentions.users.first();
            message.channel.send(`${message.author} hugged ${taggedUser.username}!`);
        }

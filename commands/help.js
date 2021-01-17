@@ -1,24 +1,32 @@
+const Discord = require('discord.js');
 const fs = require('fs');
 
 module.exports= {
     name: 'help',
-    description: "Description: Sends a proper usage log to the chat",
-    usage: "Usage: $help\n\n",
+    description: "Sends a proper usage log to the chat",
+    usage: "$help\n\n",
      execute(message, args){
-        var namelist = "";
-        var desclist = "";
-        var usage = "";
+       var list = [];
 
-        const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-        let result = commandFiles.forEach((file, i) => {
-            let props = require(`./${file}`);
-            namelist = props.name;
-            desclist = props.description;
-            usage = props.usage;
+       const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+       let result = commandFiles.forEach((file, i) => {
+           let props = require(`./${file}`);
+           var command = {
+               name: props.usage,
+               value: props.description,
+           };
 
-            // send help text
-            message.channel.send(`**${namelist}** \n${desclist} \n${usage}`);
-        });
-        
-    }
+           list.push(command);
+       });
+
+       const embed = new Discord.MessageEmbed()
+           .setColor('#ff6666')
+           .setAuthor('Friendship Bot Help')
+           .setDescription('**Full Command List**')
+           .addFields(
+               list
+           )
+           .setFooter('Thanks for using Friendship Bot 💖')
+       message.channel.send(embed)
+   }
 }

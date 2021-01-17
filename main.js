@@ -53,7 +53,7 @@ client.on('message', message => {
     } else if(command === 'give'){
         client.commands.get('give').execute(message, args);
     } else {
-       message.channel.send('Unrecognized command. Enter $help for proper usage');
+        message.channel.send('Unrecognized command. Enter $help for proper usage');
     }
 });
 

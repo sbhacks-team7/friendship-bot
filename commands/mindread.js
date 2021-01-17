@@ -148,7 +148,7 @@ module.exports= {
 
             collector1.on('end', (collected, reason) => {
                 if (reason === 'time') {
-                    message.reply('Too late! Ran out of time...');
+                    message.channel.send(`<@${taggedUser.id}> didn't respond..`);
                     taggedAnswer = undefined;
                 } else {
                     taggedAnswer = collected.array()[0];
@@ -176,7 +176,7 @@ module.exports= {
 
             collector2.on('end', (collected, reason) => {
                 if (reason === 'time') {
-                    message.reply('Too late! Ran out of time...');
+                    message.channel.send(`${message.author} didn't respond. How irresponsible!`);
                     userAnswer = undefined;
                 } else {
                     userAnswer = collected.array()[0];
@@ -198,7 +198,9 @@ module.exports= {
         }
 
         function cont() {
-            if(taggedAnswer === undefined || userAnswer === undefined || taggedAnswer !== userAnswer) {
+            if(taggedAnswer === undefined || userAnswer === undefined){
+                
+            } else if(taggedAnswer !== userAnswer) {
                 message.channel.send("Your mental connection is weak...");
             } else {
                 message.channel.send("Your mental connection is strong!");

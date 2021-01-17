@@ -5,13 +5,8 @@ module.exports= {
     description: "Ask the magic 8 ball!",
     usage: "$magic8ball [question] \t||\t $8 [question]\n\n",
      execute(message, args){
-        
-
-
-        const input = message.content.slice(11);
-
-        if(!input) {
-            return message.reply('you need to ask a question!');
+        if(!args.length) {
+            return message.channel.send('You need to ask a question!');
         }
 
         const answers = ["It is certain.", "It is decidely so.", "Without a doubt.", "Yes -- definitely.", "You may rely on it.", 

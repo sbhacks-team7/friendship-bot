@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports= {
     name: 'mindread',
     description: "Sees if two users can read each others' minds!",
-    usage: "$mindread [@mention]\n\n",
+    usage: "$mindread [@mention] \t||\t $mr [@mention]\n\n",
     execute(message, args){
         if (!message.mentions.users.size) {
             return message.reply('You need to tag a user in order to read their mind!');

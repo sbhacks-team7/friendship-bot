@@ -51,7 +51,7 @@ client.on('message', message => {
         client.commands.get('hug').execute(message, args);
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
-    } else if (command === 'mindread') {
+    } else if (command === 'mindread' || command === 'mr') {
         client.commands.get('mindread').execute(message, args);    
     } else if (command === 'magic8ball' || command === '8') {
         client.commands.get('magic8ball').execute(message, args);

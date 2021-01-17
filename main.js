@@ -56,7 +56,9 @@ client.on('message', message => {
         client.commands.get('urbandictionary').execute(message, args);
     } else if (command === 'play') {
         client.commands.get('play').execute(message, args);
-    } else if (command === 'leave') {
+    } else if (command === 'give') {
+        client.commands.get('give').execute(message, args);
+    }else if (command === 'leave') {
         client.commands.get('leave').execute(message, args);
     } else if (command === 'dbconnect') {
         client.commands.get('dbconnect').execute(message, args);

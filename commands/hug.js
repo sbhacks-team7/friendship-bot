@@ -4,7 +4,7 @@ module.exports= {
     name: 'hug',
     description: "Description: Sends a hug to the mentioned user",
     usage: "Usage: $hug [@mention]\n\n",
-     execute(message, args){
+    execute(message, args){
         if (!message.mentions.users.size) {
             return message.reply('you need to tag a user in order to hug them!');
         }        

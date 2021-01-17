@@ -48,9 +48,12 @@ client.on('message', message => {
         // grab the "first" mentioned user from the message
         // this will return a `User` object, just like `message.author`
         client.commands.get('hug').execute(message, args);
-    
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
+    } else if (command === 'mindread') {
+        client.commands.get('mindread').execute(message, args);
+    }else {
+        message.channel.send('Unrecognized command. Enter $help for proper usage');
     } else if(command === 'give'){
         client.commands.get('give').execute(message, args);
     } else {

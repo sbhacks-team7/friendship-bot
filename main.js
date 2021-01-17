@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const {Client, MessageEmbed} = require('discord.js');
+
+
 const client = new Discord.Client();
 //const TOKEN = process.env.TOKEN;
 
@@ -50,9 +53,20 @@ client.on('message', message => {
         client.commands.get('fight').execute(message, args);
     } else if (command === 'mindread') {
         client.commands.get('mindread').execute(message, args);
-    } else if(command === 'give'){
-        client.commands.get('give').execute(message, args);
-    } else {
+    
+    } else if (command === 'magic8ball') {
+        client.commands.get('magic8ball').execute(message, args);
+    
+    } else if (command === 'coinflip') {
+        client.commands.get('coinflip').execute(message, args);
+    
+    } else if (command === 'cat') {
+        client.commands.get('cat').execute(message, args);
+
+    } else if (command === 'ud' || command === 'urbandictionary') {
+        client.commands.get('urbandictionary').execute(message, args);
+
+    }else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');
     }
 });

@@ -45,8 +45,6 @@ client.on('message', message => {
     if(command === 'help'){
         client.commands.get('help').execute(message, args);
     } else if (command === 'hug') {
-        // grab the "first" mentioned user from the message
-        // this will return a `User` object, just like `message.author`
         client.commands.get('hug').execute(message, args);
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);

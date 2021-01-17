@@ -1,4 +1,4 @@
-const {mongodb_uri} = require('../config.json');
+const {mongodb_uri} = process.env.mongodb_uri;
 const {MongoClient} = require('mongodb');
 
 const client = new MongoClient(mongodb_uri, {useNewUrlParser: true, useUnifiedTopology: true});

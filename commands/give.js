@@ -3,8 +3,8 @@ const fs = require('fs');
 
 module.exports= {
     name: 'give',
-    description: "Description: Gives a gift to the mentioned user",
-    usage: "Usage: $give [@mention]\n\n",
+    description: "Gives a gift to the mentioned user",
+    usage: "$give [@mention]\n\n",
      execute(message, args){
         if (!message.mentions.users.size || message.mentions.users.size > 1) {
             return message.reply('you need to tag one user in order to give a gift them!');

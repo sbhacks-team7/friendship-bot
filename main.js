@@ -2,11 +2,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const {Client, MessageEmbed} = require('discord.js');
 
-
 const client = new Discord.Client();
-//const TOKEN = process.env.TOKEN;
-
-//const prefix = '$';
 
 const fs = require('fs');
 
@@ -40,7 +36,7 @@ function getUserFromMention(mention) {
 
 client.on('message', message => {
     if(!message.content.startsWith(prefix) || message.author.bot) return;
-    
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
@@ -51,7 +47,7 @@ client.on('message', message => {
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
     } else if (command === 'mindread' || command === 'mr') {
-        client.commands.get('mindread').execute(message, args);    
+        client.commands.get('mindread').execute(message, args);
     } else if (command === 'magic8ball' || command === '8') {
         client.commands.get('magic8ball').execute(message, args);
     } else if (command === 'coinflip' || command === 'cf') {
@@ -64,7 +60,9 @@ client.on('message', message => {
         client.commands.get('play').execute(message, args);
     } else if (command === 'leave') {
         client.commands.get('leave').execute(message, args);
-    }else {
+    } else if (command === 'dbconnect') {
+        client.commands.get('dbconnect').execute(message, args);
+    } else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');
     }
 });

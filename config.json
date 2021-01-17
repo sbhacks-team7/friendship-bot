@@ -1,4 +1,5 @@
 {
 	"prefix": "$",
-	"token": "ODAwMDY5OTY3ODk0MTUxMTc4.YAMxOA.GMRMbY_Ml8OIX4nf6JXThbMBjVw"
+	"token": "ODAwMDY5OTY3ODk0MTUxMTc4.YAMxOA.GMRMbY_Ml8OIX4nf6JXThbMBjVw",
+	"mongodb_uri": "mongodb+srv://dbadmin:DyeuQ4pyOZmfPkD4@cluster0.nyibw.mongodb.net/friendship_bot?retryWrites=true&w=majority"
 }

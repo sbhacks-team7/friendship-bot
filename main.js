@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const {Client, MessageEmbed} = require('discord.js');
+
+
 const client = new Discord.Client();
 //const TOKEN = process.env.TOKEN;
 
@@ -18,7 +21,7 @@ for(const file of commandFiles){
 
 client.on('ready', () => {
     console.log('friendship-bot is online now!');
-    client.user.setUsername("friendship-bot");
+    client.user.setUsername("Dachi");
     client.user.setActivity("$help");
 });
 
@@ -42,19 +45,28 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'help'){
+    if(command === 'help' || command === ''){
         client.commands.get('help').execute(message, args);
     } else if (command === 'hug') {
-        // grab the "first" mentioned user from the message
-        // this will return a `User` object, just like `message.author`
         client.commands.get('hug').execute(message, args);
-    
     } else if(command === 'fight') {
         client.commands.get('fight').execute(message, args);
-    } else if(command === 'give'){
-        client.commands.get('give').execute(message, args);
-    } else {
-       message.channel.send('Unrecognized command. Enter $help for proper usage');
+    } else if (command === 'mindread' || command === 'mr') {
+        client.commands.get('mindread').execute(message, args);    
+    } else if (command === 'magic8ball' || command === '8') {
+        client.commands.get('magic8ball').execute(message, args);
+    } else if (command === 'coinflip' || command === 'cf') {
+        client.commands.get('coinflip').execute(message, args);
+    } else if (command === 'cat') {
+        client.commands.get('cat').execute(message, args);
+    } else if (command === 'ud' || command === 'urbandictionary') {
+        client.commands.get('urbandictionary').execute(message, args);
+    } else if (command === 'play') {
+        client.commands.get('play').execute(message, args);
+    } else if (command === 'leave') {
+        client.commands.get('leave').execute(message, args);
+    }else {
+        message.channel.send('Unrecognized command. Enter $help for proper usage');
     }
 });
 

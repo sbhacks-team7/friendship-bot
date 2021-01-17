@@ -17,7 +17,13 @@
   },
   "homepage": "https://github.com/sbhacks-team7/friendship-bot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.3",
+    "node-fetch": "^2.6.1",
+    "opus": "0.0.0",
+    "yt-search": "^2.5.2",
+    "ytdl-core": "^4.4.3"
   }
 }

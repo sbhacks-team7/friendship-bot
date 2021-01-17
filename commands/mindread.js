@@ -15,7 +15,7 @@ module.exports= {
             
             .setDescription("Do you accept this gift? 😊");
         
-        message.taggedUser.dmChannel.send(embed).then((question) => {
+        message.taggedUser.send(embed).then((question) => {
             question.react('👍');
             question.react('👎');
         
@@ -25,7 +25,7 @@ module.exports= {
             };
 
 
-            const collector1 = question1.createReactionCollector(filter1, 
+            const collector1 = question.createReactionCollector(filter1, 
                 {max: 1, time: 60000
             });
 
@@ -39,7 +39,7 @@ module.exports= {
             });
         });
 
-        message.author.dmChannel.send(embed).then((question) => {
+        message.author.send(embed).then((question) => {
             question.react('👍');
             question.react('👎');
         
@@ -48,7 +48,7 @@ module.exports= {
             };
     
     
-            const collector2 = question2.dmChannel.createReactionCollector(filter2, 
+            const collector2 = question.dmChannel.createReactionCollector(filter2, 
                 {max: 1, time: 60000
             });
 

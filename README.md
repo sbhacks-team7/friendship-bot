@@ -6,7 +6,6 @@ Basic friendship-bot with commands to break the ice.
 | ------------- | ------------- | ------------- |
 | cat  | Sends a cat!  | $cat |
 | coinflip  | Heads or tails?  | $coinflip or $cf  |
-| leave  | stop the bot and leave the channel  | $leave |
 | dbconnect  | Function that tests connection to mongoDB  | $dbconnect |
 | fight  | Fights a mentioned user and generates a random winner | $fight [@mention] |
 | give  | Gives a gift to the mentioned user  | $give [@mention] |

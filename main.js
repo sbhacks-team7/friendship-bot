@@ -58,6 +58,9 @@ client.on('message', message => {
     } else if (command === 'magic8ball') {
         client.commands.get('magic8ball').execute(message, args);
     
+    } else if (command === 'coinflip') {
+        client.commands.get('coinflip').execute(message, args);
+    
     }else {
         message.channel.send('Unrecognized command. Enter $help for proper usage');
     }
